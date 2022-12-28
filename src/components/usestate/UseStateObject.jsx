@@ -2,22 +2,27 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const UseStateObject = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirm_password: "",
-  });
 
-  const handleInput = (event) => {
-    const name = event.target.name;
+  // here i am going to create useState effect with form values createData , setCreateData and inside the useState i have created an object, there is all name variables are there for input type
+  
+  const [createData ,setCreateData ] = useState({
+    username : "",
+    email : "",
+    password : "",
+    confirm_password : "",
+  })
 
-    const value = event.target.value;
+  // using this function i am taking name attribute and value attribute value meams 
 
-    setFormData((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
+  const changeFunc = (e)=>{
+    const name = e.target.name;
+    const value = e.target.value;
+    setCreateData((pre)=>{
+        return{ ...pre , [name] : value}
+    })
+  }
+
+
 
   return (
     <Wrapper>
@@ -34,8 +39,15 @@ const UseStateObject = () => {
                   name="username"
                   placeholder="Name"
                   autoComplete="off"
-                  value={formData.username}
-                  onChange={handleInput}
+
+
+                  // here setting value towards the useState object
+
+                  value={createData.username}
+
+                  // calling function there
+                  onChange={changeFunc}
+
                 />
               </div>
               <div className="form-group">
@@ -46,8 +58,8 @@ const UseStateObject = () => {
                   name="email"
                   autoComplete="off"
                   placeholder="Email"
-                  value={formData.email}
-                  onChange={handleInput}
+                  value={createData.email}
+                  onChange= {changeFunc}
                 />
               </div>
 
@@ -59,8 +71,8 @@ const UseStateObject = () => {
                   name="password"
                   placeholder="Password"
                   autoComplete="off"
-                  value={formData.password}
-                  onChange={handleInput}
+                  value={createData.password}
+                  onChange={changeFunc}
                 />
               </div>
               <div className="form-group">
@@ -71,8 +83,8 @@ const UseStateObject = () => {
                   name="confirm_password"
                   placeholder="confirm-password"
                   autoComplete="off"
-                  value={formData.confirm_password}
-                  onChange={handleInput}
+                  value={createData.confirm_password}
+                  onChange ={changeFunc}
                 />
               </div>
               <div className="d-flex flex-row align-items-center justify-content-between">
@@ -80,7 +92,8 @@ const UseStateObject = () => {
               </div>
             </form>
             <div>
-              <p>{`My name is ${formData.username} and email is ${formData.email}`}</p>
+              <p>{`my name is : ${createData.username} and email : is ${createData.email} `}</p>
+
             </div>
           </div>
         </div>

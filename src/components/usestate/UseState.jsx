@@ -15,7 +15,7 @@ const UseState = () => {
           </button>
           <h1>{count}</h1>
           <button
-            onClick={() => (count === 0 ? setCount(0) : setCount(count - 1))}>
+            onClick={() =>{return (count === 0 ? setCount(0) : setCount(count - 1)) } }>
             <FaMinus className="icon minus_icon" />
           </button>
         </div>

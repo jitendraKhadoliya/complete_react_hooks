@@ -3,17 +3,42 @@ import styled from "styled-components";
 import { BiPlusMedical } from "react-icons/bi";
 import { FaMinus } from "react-icons/fa";
 
-const UseEffect = () => {
-  const [count, setCount] = useState(0);
 
-  const countUpdate = (val) => {
-    if (val === "inc") return setCount(count + 1);
-    if (val === "dec") return setCount(count - 1);
-  };
+// use effect allows use to side effect in the components
+// use effect have two arguments first is call back second is optional
+// optional types = 1. direct 2. assign empty array 3. prop & state
 
-  useEffect(() => {
-    document.title = count;
-  }, [count]);
+// 1. it will rander everyTime but cons. if there is more use Effects then all will be rander again and again and it will create problem
+// 2. while using the empty [] array it will only randor once
+// 3. state and props will randor once but 
+
+const UseEffect = ()=>{
+  const [count ,setCount] = useState(0);
+
+  const countUpdate = (value)=>{
+      if(value === "inc"){
+        return setCount( count + 1);
+      }if(value === "dec" && count !== 0 ){
+        return setCount(count -1);
+      }
+  }
+
+
+  // here i will use effect
+  // here it will rander everyTime
+       useEffect(()=>{
+           document.title = count ;
+          })
+
+  // here it will randor for fiest time
+        useEffect(()=>{
+          document.title = count ;
+        },[])
+
+  // here it will randor only when props and state value changes
+          useEffect(()=>{
+            document.title = count ;
+          },[count])
 
   return (
     <>

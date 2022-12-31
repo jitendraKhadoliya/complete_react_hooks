@@ -1,11 +1,16 @@
 import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import Child from "./Child";
+import { AppContext } from "./components/usecontext/userContext";
 
 const Parent = () => {
+
+const mydata2 = useContext(AppContext);
+
   return (
     <Wrapper>
-      <h2>Parent Comp</h2>
+      <h2>Parent Comp {mydata2.name} </h2>
       <Child />
     </Wrapper>
   );

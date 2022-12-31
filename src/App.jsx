@@ -1,8 +1,9 @@
+// import { AppProvider } from "./components/usecontext/userContext";
 // import ClearUp from "./components/useeffect/ClearnUp";
-import UseEffect from "./components/useeffect/UseEffect";
+// import UseEffect from "./components/useeffect/UseEffect";
 // import UseState from "./components/usestate/UseState";
 // import UseStateObject from "./components/usestate/UseStateObject";
-// import ReducerHook from "./components/usereducer/ReducerHook";
+import ReducerHook from "./components/usereducer/ReducerHook";
 // import Parent from "./Parent";
 // import RefHook from "./components/useref/RefHook";
 // import RefHook1 from "./components/useref/RefHook1";
@@ -11,7 +12,9 @@ import UseEffect from "./components/useeffect/UseEffect";
 // import Callbackhook from "./components/usecallback/CallbackHook";
 
 const App = () => {
-  return < UseEffect />;
+  
+  return < ReducerHook />;
+    
 };
 
 export default App;

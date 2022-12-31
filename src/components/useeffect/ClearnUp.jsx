@@ -2,18 +2,30 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const ClearUp = () => {
-  const [widthCount, setWidthCount] = useState(window.screen.width);
 
-  const currentScreenWidth = () => {
-    setWidthCount(() => window.innerWidth);
-  };
 
-  useEffect(() => {
-    window.addEventListener("resize", currentScreenWidth);
-    return () => {
-      window.removeEventListener("resize", currentScreenWidth);
-    };
-  });
+  // here what am i going to do is first i will print the total width of my screen i print it inside h2 html teg using useState
+
+  const [widthCount , setWidthCount] = useState(window.screen.width);
+
+  // here i able to print screen size total but unable to print change the screen when we move screen size for that i need to use an effect method hook
+
+  const resizeFunc = ()=>{
+   setWidthCount( ()=>  window.innerWidth);
+  }
+
+
+  useEffect(()=>{
+
+    window.addEventListener("resize",resizeFunc)
+      // so whats happing here is it's creating resize event everytime when we move screen so whats the good approch is we should clear the last event log that perfomed for that i will clear that event data in useEffect 
+
+      return ()=>{
+        window.removeEventListener("resize" , resizeFunc)
+      }
+
+  })
+
   return (
     <Wrapper>
       <div className="container">

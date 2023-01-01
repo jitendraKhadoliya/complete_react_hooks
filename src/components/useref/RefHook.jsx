@@ -2,16 +2,27 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 
 const RefHook = () => {
-  const inputRef = useRef();
+  // so here i can directly can select dom element so i will choose button here to change input background color with focus
 
-  const changeBorder = () => {
-    inputRef.current.focus();
-    inputRef.current.style.backgroundColor = "#82E0AA";
-  };
+  // first we need to define 
+
+  const myFirstRef = useRef();
+  // and we can declare it wherever we want to update and selct dom element
+
+// here i gave into input type
+
+const changeBorder = ()=>{
+
+  myFirstRef.current.focus();
+  myFirstRef.current.style.backgroundColor = "yellow";
+}
+
+
+  
 
   return (
     <Wrapper>
-      <input type="text" ref={inputRef} />
+      <input type="text" ref={myFirstRef} />
       <br />
       <button onClick={changeBorder}>submit</button>
     </Wrapper>
